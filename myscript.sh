@@ -1,13 +1,14 @@
 #!/bin/bash
 
-command=/usr/bin/htop
+directory=/notexist
 
-if [ -f $command ]
+if [ -d $directory ]
 then 
-	echo "$command is available, lets run it ..."
+	echo "$directory exists."
+	exit 0
 else
-	echo "$command is NOT available, installing it"
-	sudo apt update && sudo apt install -y htop 
+	echo "$directory does not exist"
+	exit 1 
+
 fi
 
-$command 
